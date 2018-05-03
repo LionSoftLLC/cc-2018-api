@@ -1,0 +1,72 @@
+{
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"sourceType": "module"
+	},
+	"plugins": [
+		"import"
+	],
+	"extends": "walmart/configurations/es6-node",
+	"rules" : {
+		"strict": 0,
+		"no-unused-vars": 1,
+		"no-debugger": 1,
+		"linebreak-style": [
+			2,
+			"unix"
+		],
+		"no-restricted-syntax": 0,
+		"spaced-comment": 0,
+		"no-param-reassign": 1,
+		"no-useless-constructor": 1,
+		"no-trailing-spaces": 0,
+		"no-underscore-dangle": 0,
+		"indent": [
+			2,
+			"tab",
+			{
+				"SwitchCase": 1
+			}
+		],
+		"no-tabs": 0,
+		"quotes": [
+			2,
+			"backtick"
+		],
+		"arrow-parens": [
+			2,
+			"always"
+		],
+		"arrow-body-style": [
+			2,
+			"as-needed"
+		],
+		"comma-dangle": 0,
+		"valid-jsdoc": 0,
+		"new-cap": 0,
+		"consistent-return": 0,
+		"consistent-this": 0,
+		"import/imports-first": 0,
+		"import/newline-after-import": 0,
+		"import/no-dynamic-require": 0,
+		"import/no-extraneous-dependencies": 0,
+		"import/no-named-as-default": 0,
+		"filenames/match-regex": 0,
+		"import/prefer-default-export": 0,
+		"import/extensions": 0,
+		"import/no-unresolved": 2,
+		"max-len": 0,
+		"newline-per-chained-call": 0,
+		"no-confusing-arrow": 0,
+		"no-use-before-define": 0,
+		"prefer-template": 2,
+		"class-methods-use-this": 0,
+		"require-yield": 0,
+		"import/no-webpack-loader-syntax": 0,
+		"eqeqeq": [
+			2,
+			"always",
+			{"null": "ignore"}
+		]
+	}
+}

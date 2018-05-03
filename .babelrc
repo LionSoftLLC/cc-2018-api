@@ -1,0 +1,26 @@
+{
+	"presets": [
+		"env",
+		"stage-0"
+	],
+	"plugins": [
+		"transform-decorators-legacy"
+	],
+	"env": {
+		"production": {
+			"presets": [
+				"env",
+				"stage-0"
+			],
+			"plugins": [
+				"transform-decorators-legacy"
+			]
+		},
+		"test": {
+			"plugins": [
+				"transform-es2015-modules-commonjs",
+				"dynamic-import-node"
+			]
+		}
+	}
+}
