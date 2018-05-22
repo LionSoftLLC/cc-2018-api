@@ -33,6 +33,7 @@ const App = class App {
 		// preserve context
 		const _this = this;
 		
+		_this._app.use(`/static`, express.static(`${process.env.PROJECT_ROOT}/server/static`));
 		_this._app.use(`/api`, Routing);
 	}
 
