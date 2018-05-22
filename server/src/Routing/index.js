@@ -5,7 +5,6 @@ import bodyParser from 'body-parser';
 //Local Dependencies
 import RequestError from './../Errors/RequestError';
 import ErrorHandler from './../Middleware/ErrorHandler';
-import KeyValue from './KeyValue';
 import Authentication from './Authentication';
 import Content from './Content';
 import User from './User';
@@ -19,7 +18,6 @@ Routes.use(
 	(err, req, res, next) => { next(new RequestError(`Invalid JSON provided.`, RequestError.Codes.badRequest, true)); } // eslint-disable-line max-params
 );
 
-Routes.use(`/keyvalue`, KeyValue);
 //Create req.returnJson property
 Routes.use((req, res, next) => {
 	req.returnJson = {
