@@ -14,7 +14,10 @@ import { ReadToken, GetUserFromToken } from '../Middleware/Authentication';
 const Routes = express.Router();
 
 Routes.use(bodyParser.urlencoded({ extended: true }));
-Routes.use(bodyParser.json());
+Routes.use(
+	bodyParser.json(),
+	(err, req, res, next) => { next(new RequestError(`Invalid JSON provided.`, RequestError.Codes.badRequest, true)); } // eslint-disable-line max-params
+);
 
 Routes.use(`/keyvalue`, KeyValue);
 //Create req.returnJson property
