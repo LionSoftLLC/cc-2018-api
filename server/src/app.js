@@ -33,7 +33,7 @@ const App = class App {
 		// preserve context
 		const _this = this;
 		
-		_this._app.use(Routing);
+		_this._app.use(`/api`, Routing);
 	}
 
 	_startListener() {
