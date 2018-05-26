@@ -1,0 +1,51 @@
+[
+	{
+		"name": "1080p",
+		"resolution": {
+			"w": 1920,
+			"h": 1080
+		},
+		"audioBitrate": "192k",
+		"videoBitrate": "5000k",
+		"videoMaxrate": "5350k",
+		"videoBufsize": "7500k",
+		"bandwidth": 5000000,
+		"screenshot": true
+	},
+	{
+		"name": "720p",
+		"resolution": {
+			"w": 1280,
+			"h": 720
+		},
+		"audioBitrate": "128k",
+		"videoBitrate": "2800k",
+		"videoMaxrate": "2996k",
+		"videoBufsize": "4200k",
+		"bandwidth": 2800000
+	},
+	{
+		"name": "480p",
+		"resolution": {
+			"w": 842,
+			"h": 480
+		},
+		"audioBitrate": "128k",
+		"videoBitrate": "1400k",
+		"videoMaxrate": "1498k",
+		"videoBufsize": "2100k",
+		"bandwidth": 1400000
+	},
+	{
+		"name": "360p",
+		"resolution": {
+			"w": 640,
+			"h": 360
+		},
+		"audioBitrate": "96k",
+		"videoBitrate": "800k",
+		"videoMaxrate": "856k",
+		"videoBufsize": "1200k",
+		"bandwidth": 800000
+	}
+]
