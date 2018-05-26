@@ -16,7 +16,7 @@ const imageTypes = [
 ];
 const videoTypes = [
 	`mov`,
-	`mp3`,
+	`mp4`,
 ];
 const allowedFileTypes = imageTypes.concat(videoTypes);
 
