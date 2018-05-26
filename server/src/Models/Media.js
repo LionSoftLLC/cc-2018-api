@@ -3,6 +3,7 @@ import _ from 'lodash';
 import mongoose from 'mongoose';
 import Logger from 'winston';
 import Promise from 'bluebird';
+import fs from 'fs-extra';
 
 //Local dependencies
 import BaseModel from './_base/Model';
@@ -69,22 +70,39 @@ const Media = class Media extends BaseModel {
 	_getUris() {
 		// preserve context
 		const _this = this;
-		
-		const mediaType = _this.getMediaType();
-		const basePath = `${process.env.HOST_PROTOCOL}://${process.env.HOST_NAME}:${process.env.HOST_PORT}/static/media/${mediaType}s/${_this.baseName}`;
 
-		return {
-			_id: _this._id,
-			createdDate: _this.createdDate,
-			thumbUri: `${basePath}_thumb.${_this.extention}`,
-			fullUri: `${basePath}.${_this.extention}`,
-		};
+		const mediaType = _this.getMediaType();
+
+		switch (mediaType) {
+			case `image`:
+				return {
+					_id: _this._id,
+					createdDate: _this.createdDate,
+					thumbUri: `${Media.ImageRoute}/${_this.baseName}_thumb.${_this.extention}`,
+					fullUri: `${Media.ImageRoute}/${_this.baseName}.${_this.extention}`,
+				};
+			case `video`:
+				return {
+					_id: _this._id,
+					createdDate: _this.createdDate,
+					image: {
+						thumbUri: `${Media.ImageRoute}/${_this.baseName}_thumb.jpg`,
+						fullUri: `${Media.ImageRoute}/${_this.baseName}.jpg`,
+					},
+					video: {
+						rawUri: `${Media.VideoRoute}/${_this.baseName}.${_this.extention}`,
+						streamUri: `${Media.VideoRoute}/${_this.baseName}/index.m3u8`,
+					}
+				};
+			default:
+				throw new Error(`Unrecognized media type "${mediaType}"`);
+		}
 	}
 
 	_getMediaType() {
 		// preserve context
 		const _this = this;
-		
+
 		return Media.getMediaType(_this.extention);
 	}
 
@@ -95,7 +113,7 @@ const Media = class Media extends BaseModel {
 	static getMediaType(extention) {
 		// preserve context
 		const _this = this;
-		
+
 		if (imageTypes.includes(extention)) {
 			return `image`;
 		} else if (videoTypes.includes(extention)) {
