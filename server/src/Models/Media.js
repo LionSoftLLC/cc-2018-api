@@ -38,6 +38,18 @@ const Media = class Media extends BaseModel {
 	}
 
 	////////////////////////
+	// GETTERS AND SETTERS//
+	////////////////////////
+
+	static get ImageRoute() {
+		return `${process.env.HOST_PROTOCOL}://${process.env.HOST_NAME}:${process.env.HOST_PORT}/static/media/images`;
+	}
+
+	static get VideoRoute() {
+		return `${process.env.HOST_PROTOCOL}://${process.env.HOST_NAME}:${process.env.HOST_PORT}/static/media/videos`;
+	}
+
+	////////////////////////
 	// INHEREITED METHODS //
 	////////////////////////
 
